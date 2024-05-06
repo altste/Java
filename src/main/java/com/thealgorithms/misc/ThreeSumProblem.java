@@ -1,6 +1,14 @@
 package com.thealgorithms.misc;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
 
 public class ThreeSumProblem {
 
@@ -75,7 +83,7 @@ public class ThreeSumProblem {
 
     public List<List<Integer>> Hashmap(int[] nums, int target) {
         Arrays.sort(nums);
-        Set<List<Integer>> ts = new HashSet();
+        Set<List<Integer>> ts = new HashSet<>();
         HashMap<Integer, Integer> hm = new HashMap<>();
 
         for (int i = 0; i < nums.length; i++) {
@@ -94,6 +102,6 @@ public class ThreeSumProblem {
                 }
             }
         }
-        return new ArrayList(ts);
+        return new ArrayList<>(ts);
     }
 }

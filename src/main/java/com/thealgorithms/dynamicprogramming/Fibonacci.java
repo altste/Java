@@ -9,7 +9,7 @@ import java.util.Scanner;
  */
 public class Fibonacci {
 
-    private static Map<Integer, Integer> map = new HashMap<>();
+    private static final Map<Integer, Integer> CACHE = new HashMap<>();
 
     public static void main(String[] args) {
         // Methods all returning [0, 1, 1, 2, 3, 5, ...] for n = [0, 1, 2, 3, 4, 5, ...]
@@ -30,8 +30,8 @@ public class Fibonacci {
      * Outputs the nth fibonacci number
      */
     public static int fibMemo(int n) {
-        if (map.containsKey(n)) {
-            return map.get(n);
+        if (CACHE.containsKey(n)) {
+            return CACHE.get(n);
         }
 
         int f;
@@ -40,7 +40,7 @@ public class Fibonacci {
             f = n;
         } else {
             f = fibMemo(n - 1) + fibMemo(n - 2);
-            map.put(n, f);
+            CACHE.put(n, f);
         }
         return f;
     }
@@ -106,7 +106,6 @@ public class Fibonacci {
     public static int fibBinet(int n) {
         double squareRootOf5 = Math.sqrt(5);
         double phi = (1 + squareRootOf5) / 2;
-        int nthTerm = (int) ((Math.pow(phi, n) - Math.pow(-phi, -n)) / squareRootOf5);
-        return nthTerm;
+        return (int) ((Math.pow(phi, n) - Math.pow(-phi, -n)) / squareRootOf5);
     }
 }
